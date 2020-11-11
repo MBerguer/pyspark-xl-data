@@ -65,7 +65,7 @@ docker volume create --name "$WORK_VOLUME"
 
 # Bring up a notebook container, using container name as project name
 echo "Bringing up notebook '$NAME'"
-docker-compose -f "$DIR/$CONFIG" -p "$NAME" up -d
+docker-compose -f "$DIR/$CONFIG" -p "$NAME" up -d --build
 
 
 # This was the detault option to deploy the app to a docker machine

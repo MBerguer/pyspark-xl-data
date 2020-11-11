@@ -14,3 +14,6 @@ USER $NB_UID
 # Switch back to jovyan to avoid accidental container runs as root
 # Add permanent pip/conda installs, data files, other user libs here
 # e.g., RUN pip install jupyter_dashboards
+
+
+RUN pip install --pre gql[aiohttp]
