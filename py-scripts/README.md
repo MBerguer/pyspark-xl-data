@@ -20,7 +20,7 @@ Example of use:
 
 ```bash
 source .env
-python python extract_info_from_gh_api.py repos.txt 
+python3 extract_info_from_gh_api.py repos.txt 
 ```
 
 The result will be stored in the `output/repos.json` file.

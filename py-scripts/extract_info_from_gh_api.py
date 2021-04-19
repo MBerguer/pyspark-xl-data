@@ -101,6 +101,9 @@ async def fetch_github_repo(repo: Repo):
         return result
 
 def get_next_page_from_link_header(link: str):
+    if not link:
+        return None
+
     link_list = list(map(lambda x: x.split('; '), link.split(',')))
     next_link = next(iter([i[0].replace('<', '').replace('>', '') for i in link_list if i[1] == 'rel="next"']), None)
     return next_link
@@ -147,6 +150,7 @@ async def main():
     repos = load_repos()
     repos_data = []
     for repo in repos:
+        print(f'Downloading repo: {repo}')
         info = await fetch_github_repo(repo=repo)
         contributors = await fetch_github_repo_contributors(repo=repo)
         repos_data.append(info | {'contributors': contributors})
